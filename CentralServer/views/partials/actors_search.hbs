@@ -1,0 +1,31 @@
+{{#section "scripts"}}
+    <script src="/javascripts/actors.js"></script>
+{{/section}}
+
+<div class="explore-container">
+    <div class="explore-header">
+        <h1>Star del Cinema</h1>
+        <p>Cerca i tuoi attori preferiti per scoprire i loro successi.</p>
+
+        <div class="search-box-wrapper">
+            <input type="text" id="actorSearchInput" placeholder="Inserisci il nome di un attore...">
+            <button id="btnSearchActor">Cerca</button>
+        </div>
+    </div>
+
+    <div id="actorsGrid" class="movie-grid">
+        <p style="color: #666; grid-column: 1/-1; text-align: center;">Inserisci un nome per iniziare la ricerca.</p>
+    </div>
+</div>
+
+
+<div id="actorModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn" onclick = "closeModal()">&times;</span>
+        <div id="actorDetailsContent">
+        </div>
+    </div>
+</div>
+
+
+

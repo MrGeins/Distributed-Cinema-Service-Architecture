@@ -1,0 +1,16 @@
+/* IDE and dependency folders */
+.git
+.idea
+SpringBootServer/.idea
+.vscode
+.DS_Store
+
+/* Build and output directories */
+node_modules
+CentralServer/node_modules
+ExpressServer/node_modules
+package-lock.json
+ExpressServer/package-lock.json
+CentralServer/package-lock.json
+SpringBootServer/build
+SpringBootServer/src/main/resources

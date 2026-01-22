@@ -1,0 +1,25 @@
+{{#section 'full_width'}}
+    true
+{{/section}}
+<link rel='stylesheet' href='/stylesheets/style.css'/>
+
+<div class="auth-page-wrapper">
+    <div class="auth-card">
+        <h2>Sign Up</h2>
+        <form action="/users/register" method="POST">
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+            <select name="role" class="form-select">
+                <option value="fan">Fan (Standard Style)</option>
+                <option value="expert">Expert (Gold Chat Style 🛡️)</option>
+            </select>
+
+            <button type="submit" class="btn-iumflix">SIGN UP</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account? <a href="/users/login">Sign in now</a>
+        </div>
+    </div>
+</div>

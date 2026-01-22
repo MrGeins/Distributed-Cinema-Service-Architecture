@@ -1,0 +1,22 @@
+{{! home.hbs }}
+
+{{#section 'full_width'}}
+    true
+{{/section}}
+
+<div class="landing-container">
+    <div class="landing-content">
+        <h1 class="landing-title">All the movies you love.</h1>
+        <p class="landing-subtitle">Find reviews, chat live, and discover new titles.</p>
+
+        <div class="search-box-wrapper">
+            <form action="/searchForName" method="GET">
+                <input type="text" id="homeSearchInput" placeholder="Film Title" name="title" autocomplete="off">
+                <button type="submit" id="homeSearchBtn">SEARCH</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{#section 'scripts'}}
+{{/section}}

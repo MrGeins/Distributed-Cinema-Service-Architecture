@@ -1,0 +1,42 @@
+<div class="explore-container">
+    <div class="explore-header">
+        <h1>Esplora il Catalogo</h1>
+        <p>Scegli il tuo genere preferito, l'anno di uscita e trova il film perfetto.</p>
+
+        <div class="filters-container" style="display: flex; gap: 15px; justify-content: center; margin-top: 20px; align-items: center;">
+
+            <select id="genreSelect" class="form-select custom-select-arrow">
+                <option value="all">Tutti i Generi</option>
+            </select>
+
+            <select id="yearSelect" class="form-select custom-select-arrow">
+                <option value="all">Tutti gli Anni</option>
+            </select>
+
+            <button id="applyFiltersBtn" style="padding: 10px 20px; background-color: #E50914; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                FILTRA
+            </button>
+
+        </div>
+
+        <div class="filter-container" style="margin-bottom: 20px;">
+            <label for="sortOrder">Ordina per: </label>
+            <select id="sortOrder" onchange="applySort()" class="form-select custom-select-arrow">
+                <option value="rating_desc">Valutazione (desc.)</option>
+                <option value="rating_asc">Valutazione (cres.)</option>
+                <option value="year_desc">Anno (desc.)</option>
+                <option value="year_asc">Anno (cres.)</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="moviesGrid" class="movie-grid">
+        <div id="initial-spinner" class="loading-spinner-container" style="grid-column: 1 / -1;">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Caricamento film in corso...</p>
+        </div>
+    </div>
+
+</div>
+{{> chat}}
+<script src="/javascripts/movies.js"></script>

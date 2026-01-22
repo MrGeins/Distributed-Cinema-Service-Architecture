@@ -1,0 +1,28 @@
+<div class="movie-card" onclick="window.location.href='/movie/{{this.movieId}}'">
+
+    {{!-- 1. Area Poster (Sfondo) --}}
+    <div class="card-poster-area"
+         style="background-image: url('{{this.posterLink}}'); {{#unless this.posterLink}}background: linear-gradient(to bottom, #333, #111);{{/unless}}">
+    </div>
+
+
+    <div class="rating-badge">⭐ {{this.rating}}</div>
+
+    {{#if this.oscarWinner}}
+        <div class="oscar-badge">🏆 Oscar</div>
+    {{/if}}
+
+    {{!-- 3. Info in sovrapposizione (Gradient Overlay) --}}
+    <div class="movie-info">
+        <div class="movie-title">{{this.movieTitle}}</div>
+
+        <div class="movie-meta">
+            <span>{{this.yearOfRelease}}</span>
+        </div>
+
+        {{!-- event.stopPropagation() evita che il click sul bottone apra anche la pagina dettaglio --}}
+        <button class="chat-btn" onclick="event.stopPropagation(); openChat('{{this.movieTitle}}', '{{this.movieId}}')">
+            💬 Apri Chat
+        </button>
+    </div>
+</div>

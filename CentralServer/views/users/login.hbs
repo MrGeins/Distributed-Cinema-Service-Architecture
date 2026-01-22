@@ -1,0 +1,22 @@
+{{#section 'full_width'}}
+    true
+{{/section}}
+
+
+<link rel='stylesheet' href='/stylesheets/style.css'/>
+<div class="auth-page-wrapper">
+    <div class="auth-card">
+        <h2 class="fw-bold">Login on IUMFlix</h2>
+        <form action="/users/login" method="POST">
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
+
+            <button type="submit" class="btn-iumflix">Sign in</button>
+        </form>
+
+        <div class="auth-footer">
+            <span>Are you new here?</span>
+            <a href="/users/register">Sign up an account</a>
+        </div>
+    </div>
+</div>

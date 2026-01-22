@@ -1,0 +1,113 @@
+
+<div class="search-container">
+<h1>Ricerca Recensioni</h1>
+
+<form id="search-form" method="POST" >
+    <div class="form-group">
+        <label>Titolo film: <input type="text" name="title" id="title" /></label><br /> <br />
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Min score: <input type="number" step="0.1" name="minScore" id="minScore" /></label><br /> <br />
+        </div>
+        <div class="form-group">
+            <label>Max score: <input type="number" step="0.1" name="maxScore" id="maxScore" /></label><br /> <br />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Top critic:
+                <select name="topCritic">
+                    <option value="">Qualsiasi</option>
+                    <option value="true">Sì</option>
+                    <option value="false">No</option>
+                </select>
+            </label><br /> <br />
+        </div>
+
+
+        <div class="form-group">
+            <label>Tipo recensione:
+                <select name="reviewType">
+                    <option value="">Qualsiasi</option>
+                    <option value="Fresh">Fresh</option>
+                    <option value="Rotten">Rotten</option>
+                </select>
+            </label><br /> <br />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Data inizio: <input type="date" name="startDate" /></label><br /> <br />
+        </div>
+        <div class="form-group">
+            <label>Data fine: <input type="date" name="endDate" /></label><br /> <br />
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <button id="searchBtn" type="button"  class="submit-btn">Cerca</button> <br /> <br />
+
+
+     <br /> <br />
+</form>
+    <!-- <div class="container mt-5 w-100" id="message_container">
+        <ul id="messages" style="background-color: bisque"></ul>
+        <div class="row">
+            <label for="messageInput" class="me-4">Chat</label>
+            <input id="messageInput" autocomplete="off" class="w-75"/>
+            <button id="messageButton" class="w-25">Send</button>
+        </div>
+    </div> -->
+
+
+
+    <form id="send-form" method="POST" action="/contactMongo">
+        <button id="btn_Mongo" type="submit" class="submit-btn">Manda richiesta</button> <br /> <br />
+    </form>
+
+</div>
+
+<div style="margin-top: 30px; padding: 20px; background-color: #fff3cd; border: 2px dashed #ffecb5; border-radius: 10px; text-align: center;">
+    <h3 style="color: #856404; margin-top: 0;">🧪 Area Test Chat (Senza Backend)</h3>
+    <p>Usa questi pulsanti per aprire la chat senza fare la ricerca:</p>
+
+    <button onclick="openChat('Inception (TEST)', 'test-1')" class="submit-btn" style="width: auto; background: #28a745; margin: 5px;">
+        Chat: Inception
+    </button>
+
+    <button onclick="openChat('Matrix (TEST)', 'test-2')" class="submit-btn" style="width: auto; background: #17a2b8; margin: 5px;">
+        Chat: Matrix
+    </button>
+</div>
+<!-- {{{reviews_found}}} -->
+<!-- <div id="results"> </div> -->
+
+<div class="hero">
+    <div class="hero-content">
+        <h1>Benvenuto su IUM-Flix</h1>
+        <p>Cerca milioni di recensioni, chatta con altri fan e scopri il tuo prossimo film preferito.</p>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <h2 style="margin-bottom: 20px;">Risultati Ricerca</h2>
+
+    <div id="results" class="movie-grid">
+        <p style="color: #aaa;">Usa la barra in alto per cercare un film...</p>
+    </div>
+</div>
+
+<script src="javascripts/review-search.js"></script>

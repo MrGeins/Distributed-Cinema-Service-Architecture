@@ -1,0 +1,39 @@
+<div class="container py-0">
+    <div id="chat-card" class="card shadow-lg" style="display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1050; width: 350px; border-radius: 10px; overflow: hidden; border: 1px solid #333; background-color: #1a1a1a;">
+
+        <div class="card-header d-flex justify-content-between align-items-center" style="background-color: #e50914; color: white; border-bottom: none;">
+            <h6 class="mb-0 text-truncate">
+                <i class="bi bi-chat-dots-fill me-2"></i>
+                <span id="chat-window-title">Live Chat</span>
+            </h6>
+            <button id="close-chat" class="btn-close btn-close-white" aria-label="Close" style="font-size: 0.7rem;"></button>
+        </div>
+
+        <div id="chat-message" class="card-body overflow-auto" style="height: 350px; background-color: #141414; color: #fff; padding: 15px;">
+            <ul id="messages" class="list-unstyled"></ul>
+        </div>
+
+        <div class="card-footer" style="background-color: #1a1a1a; border-top: 1px solid #333;">
+            {{#if user}}
+                <form id="chat-form" class="input-group">
+                    <input
+                            type="text"
+                            id="chat-message-input"
+                            class="form-control form-control-sm border-0"
+                            style="background-color: #333; color: white;"
+                            placeholder="Scrivi un messaggio..."
+                            autocomplete="off"
+                            required
+                    />
+                    <button type="submit" class="btn" style="background-color: #e50914; color: white; border: none;">
+                        Invia
+                    </button>
+                </form>
+            {{else}}
+                <div class="auth-reminder text-center p-2">
+                    <small><a href="/users/login" class="text-danger">Login</a> per partecipare.</small>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-6">
+    <h1 class="text-center">{{actor.name}} - Filmography</h1>
+
+    <!-- Filmography Section -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+        {{#each actor.filmography}}
+            <div class="col col-sm-12 col-md-6 col-lg-5 col-xl-4 col-xxl-4">
+                <div class="card bg-white p-4 shadow rounded-4" style="max-width: 350px">
+                    <div class="card-body">
+                        <div>
+                            <img src="{{this.posterLink}}" class="img-fluid rounded-4 shadow" style="height: 400px; object-fit: cover;" alt="{{this.movieTitle}}">
+                        </div>
+                        <br>
+                        <h5 class="card-title">{{this.movieTitle}}</h5>
+                        <p class="card-text">{{this.tagline}}</p>
+                        <p class="card-text"><strong>Rating: </strong><span class="badge bg-success">{{this.rating}}/5</span></p>
+                        <p class="card-text"><strong>Year:</strong> {{this.yearOfRelease}}</p>
+                        <p class="card-text"><strong>Role: </strong>{{this.roles}}</p>
+                        <p class="card-text"><strong>Won an oscar with this film:</strong> {{#if this.hasOscar}}Yes{{else}}No{{/if}}</p>
+                        <a href="/m/{{this.movieId}}" class="btn btn-primary mt-auto">View Details</a>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+    <!-- END OF Filmography Section -->
+</div>

@@ -1,0 +1,92 @@
+{{! movie-details.hbs }}
+
+{{!-- 1. Diciamo al Layout di usare tutta la larghezza per permettere all'Hero di espandersi --}}
+{{#section 'full_width'}}
+    true
+{{/section}}
+
+{{!-- 2. SEZIONE HERO (Immagine di copertina full-screen) --}}
+<div class="movie-hero" style="background-image: url('{{movie.posterLink}}');">
+    <div class="hero-overlay">
+        <div class="hero-content">
+
+            <h1 class="hero-title">{{movie.movieTitle}}</h1>
+            {{#if movie.tagline}}
+                <h3 class="hero-tagline">"{{movie.tagline}}"</h3>
+            {{/if}}
+
+            <div class="hero-meta">
+                <span class="meta-year">{{movie.yearOfRelease}}</span>
+                <span class="meta-rating">⭐ {{movie.rating}}</span>
+                {{#if movie.oscarWinner}}
+                    <span class="meta-oscar">🏆 Oscar Winner</span>
+                {{/if}}
+            </div>
+
+            <p class="hero-description">{{movie.description}}</p>
+
+            {{#if movie.roles}}
+                <p class="hero-cast"><strong>Cast:</strong> {{movie.roles}}</p>
+            {{/if}}
+
+            <div class="hero-buttons">
+                <button class="btn-watch">
+                    ▶ Guarda Film
+                </button>
+                <button class="btn-watch" style="background-color: rgba(109, 109, 110, 0.7);" onclick='openChat("{{movie.movieTitle}}", "{{movie.movieId}}")'>
+                    💬 Apri Chat
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- 3. SEZIONE RECENSIONI --}}
+<section class="reviews-section">
+    <h2>Recensioni da Rotten Tomatoes</h2>
+
+    <div id="no-reviews-msg" style="display: none; text-align: left; padding: 30px 0; color: #aaa; border-radius: 8px;">
+        <p> Nessuna recensione trovata per questo film! </p>
+    </div>
+
+    <div id="reviewsContainer" class="reviews-grid">
+    </div>
+
+    <div class="load-more-container" style="text-align: left; margin-top: 20px;">
+        <button id="loadMoreReviewsBtn" class="btn-load-more" style="display: none;">
+            Carica altre recensioni
+        </button>
+    </div>
+</section>
+
+<input type="hidden" id="movieTitleForReviews" value="{{movie.movieTitle}}">
+
+{{!-- 4. SEZIONE FILM CORRELATI --}}
+<section class="related-movies-section">
+    <h2>Film Correlati per Tematica</h2>
+
+    <div id="no-related-msg" style="display: none; text-align: left; padding: 20px 0; color: #666;">
+        <p>Nessun film correlato trovato per questo titolo.</p>
+    </div>
+
+    <div id="error" style="display: none; text-align: left; padding: 20px 0; color: #666;">
+        <p> Errore durante la ricerca dei film correlati </p>
+    </div>
+
+    <div class="carousel-container">
+        <div id="relatedMoviesContainer" class="movie-carousel">
+            <div class="loading-spinner-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<input type="hidden" id="currentMovieId" value="{{movie.movieId}}">
+
+{{> chat}}
+
+{{#section 'scripts'}}
+    <script src="/javascripts/relatedMoviesLoader.js"></script>
+    <script src="/javascripts/reviewsLoader.js"></script>
+{{/section}}

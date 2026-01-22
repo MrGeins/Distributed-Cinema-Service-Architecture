@@ -1,0 +1,9 @@
+{{#each actors}}
+    <li class="list-group-item">
+        <a href="/actors/{{this}}" class="text-decoration-none">{{this}}</a>
+    </li>
+{{/each}}
+
+{{#if hasMore}}
+    <div id="hasMoreCast"></div>
+{{/if}}

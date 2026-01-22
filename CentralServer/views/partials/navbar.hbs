@@ -1,0 +1,39 @@
+<nav class="navbar">
+    <div class="nav-section nav-left">
+        <a href="/" class="logo">IUMFLIX</a>
+    </div>
+
+    <div class="nav-section nav-center">
+        <ul class="nav-links">
+            <li><a href="/movies">Film</a></li>
+            <li><a href="/actors">Actors</a></li>
+            <li><a href="/genres">Genres</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-section nav-right">
+        {{#unless isHome}}
+            <form class="d-flex align-items-center" role="search" action="/searchForName" method="GET">
+                <input class="form-control me-2" type="search" name="title" placeholder="Search film..." aria-label="Search" style="background-color: #fff; color: #000; border: none;">
+
+                <button class="btn-search-nav" type="submit">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+        {{/unless}}
+
+        <div class="user-auth">
+            {{#if user}}
+                <div class="user-dropdown">
+                    <span class="username">{{user.username}}</span>
+                    <a href="/logout" class="btn-logout-small" style="margin-left: 10px; color: #e50914; text-decoration: none; font-size: 0.8rem;">LOGOUT</a>
+                </div>
+            {{else}}
+                <a href="/users/login" class="btn-iumflix">LOGIN</a>
+            {{/if}}
+        </div>
+    </div>
+</nav>

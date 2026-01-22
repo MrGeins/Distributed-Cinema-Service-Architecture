@@ -1,0 +1,471 @@
+/* ==========================================================================
+   VARIABLE AND BASELINE
+   ========================================================================== */
+:root {
+    --netflix-red: #E50914;
+    --netflix-red-hover: #ff0a16;
+    --dark-bg: #141414;
+    --card-bg: #1a1a1a;
+    --text-color: #fff;
+    --gray-text: #ccc;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 4%;
+    height: 70px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.95) 0%, transparent 100%);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.nav-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left   { justify-content: flex-start; }
+.nav-center { justify-content: center; }
+.nav-right  { justify-content: flex-end; gap: 20px; }
+
+.logo {
+    color: var(--netflix-red);
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    color: #e5e5e5;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--text-color);
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   BUTTONS AND UI ELEMENTS
+   ========================================================================== */
+.btn-iumflix {
+    background-color: var(--netflix-red);
+    color: white !important;
+    padding: 6px 16px;
+    border-radius: 3px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btn-iumflix:hover {
+    background-color: var(--netflix-red-hover);
+}
+
+.btn-search-nav {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.btn-search-nav:hover {
+    color: var(--netflix-red);
+    transform: scale(1.1);
+}
+
+.custom-select-arrow {
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 35px 10px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    min-width: 150px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px auto;
+}
+
+/* ==========================================================================
+   HOMEPAGE & LANDING
+   ========================================================================== */
+.landing-container {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-content {
+    text-align: center;
+    max-width: 900px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in;
+}
+
+.landing-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+}
+
+.landing-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.search-box-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.search-box-wrapper input {
+    width: 500px;
+    padding: 20px 25px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-box-wrapper button {
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-color: var(--netflix-red);
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    text-transform: uppercase;
+    transition: background 0.3s;
+}
+
+.search-box-wrapper button:hover {
+    background-color: var(--netflix-red-hover);
+}
+
+/* ==========================================================================
+   AUTH PAGES
+   ========================================================================== */
+
+.auth-page-wrapper {
+    min-height: 100vh !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/f841d4c7-10e1-40af-bcae-07a3f8dc141a/f6d7434e-d6de-4185-a6d4-c77a2d08737b/US-en-20220502-popsignuptwoweeks-perspective_alpha_website_medium.jpg') !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    margin-top: -70px !important;
+    padding-top: 70px !important;
+    margin-bottom: 0 !important;
+    box-sizing: border-box !important;
+}
+
+.auth-card {
+    background-color: rgba(0, 0, 0, 0.75) !important;
+    padding: 50px 60px !important;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    z-index: 10;
+    margin: 40px auto !important;
+}
+
+.auth-card .form-control,
+.auth-card .form-select {
+    background-color: #333 !important;
+    border: none !important;
+    color: #fff !important;
+    height: 50px !important;
+    margin-bottom: 15px !important;
+    padding: 0 15px !important;
+}
+
+.auth-card .form-control::placeholder {
+    color: #8c8c8c !important;
+}
+
+.auth-card h2 {
+    color: #fff !important;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.auth-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #b3b3b3 !important;
+}
+
+.auth-footer a {
+    color: #fff !important;
+    font-weight: 500;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+.auth-card .btn-iumflix {
+    width: 100% !important;
+    height: 50px !important;
+    background-color: #E50914 !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    margin-top: 15px;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   FILM SECTION & CARDS
+   ========================================================================== */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.movie-card {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    background-color: var(--card-bg);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
+    z-index: 10;
+}
+
+.card-poster-area {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease;
+    z-index: 1;
+}
+
+.movie-card:hover .card-poster-area { transform: scale(1.1); }
+
+.movie-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    z-index: 3;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.7) 50%, transparent 100%);
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 150px;
+}
+
+.movie-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
+}
+
+.movie-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray-text);
+    font-size: 0.9rem;
+    margin: 5px 0 10px;
+}
+
+.rating-badge {
+    position: absolute;
+    top: 15px; right: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    color: #ffc107;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 5;
+}
+
+/* ==========================================================================
+   DETAIL PAGES (EXPLORE, GENRES, HERO)
+   ========================================================================== */
+.explore-container { padding: 140px 40px 40px; min-height: 100vh; }
+
+.movie-hero {
+    position: relative;
+    width: 100%; min-height: 85vh;
+    background-size: cover; background-position: center top;
+    background-color: #000; display: grid;
+}
+
+.hero-overlay {
+    grid-area: 1 / 1;
+    background: linear-gradient(to right, rgba(0,0,0,0.9) 20%, rgba(0,0,0,0.6) 50%, transparent 100%),
+    linear-gradient(to top, var(--dark-bg) 0%, transparent 50%);
+    padding: 100px 5% 50px;
+    display: flex; align-items: center;
+}
+
+.hero-title { font-size: 4rem; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+
+/* ==========================================================================
+   CHAT SYSTEM
+   ========================================================================= */
+#chat-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid #333 !important;
+    border-radius: 8px;
+    color: var(--text-color) !important;
+}
+
+#chat-card .card-header { background-color: var(--netflix-red) !important; color: white !important; }
+
+#messages {
+    list-style-type: none !important;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.message-bubble {
+    max-width: 85%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.message-sent     { align-self: flex-end; background-color: var(--netflix-red); color: white; border-bottom-right-radius: 2px; }
+.message-received { align-self: flex-start; background-color: #333; color: white; border-bottom-left-radius: 2px; }
+
+/* Expert Style */
+.message-bubble.expert {
+    border: 2px solid #FFD700 !important;
+    background-color: rgba(255, 215, 0, 0.15) !important;
+    color: #333;
+}
+
+.message-username.expert { color: #B8860B !important; font-weight: bold; }
+.message-username.expert::after { content: " 🛡️ EXPERT"; font-size: 0.6rem; }
+
+/* ==========================================================================
+   REVIEWS & CAROUSEL
+   ========================================================================== */
+.reviews-section {
+    width: 100%;
+    margin: 40px 0;
+    padding: 0 40px;
+    z-index: 5;
+}
+
+.reviews-section h2 {
+    border-bottom: 2px solid var(--netflix-red);
+    padding-bottom: 10px;
+    font-size: 1.8rem;
+}
+
+.movie-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--netflix-red) var(--dark-bg);
+}
+
+/* ==========================================================================
+   ANIMATION & RESPONSIVENESS
+   ========================================================================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 992px) {
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 0.9rem; }
+    .landing-title { font-size: 2rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .search-box-wrapper input { width: 100%; }
+}

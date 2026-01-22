@@ -1,0 +1,8 @@
+{{#each actors}}
+    <li class="list-group-item p-3 d-flex flex-column">
+        <a href="/actors/{{this.name}}" class="text-decoration-none">{{this.name}} - {{this.role}}</a>
+    </li>
+{{/each}}
+{{#if hasMore}}
+    <div id="hasMoreCast"></div>
+{{/if}}
