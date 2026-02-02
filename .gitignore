@@ -7,9 +7,9 @@ SpringBootServer/.idea
 
 /* Build and output directories */
 node_modules
+data
 CentralServer/node_modules
 ExpressServer/node_modules
-package-lock.json
 ExpressServer/package-lock.json
 CentralServer/package-lock.json
 SpringBootServer/build
